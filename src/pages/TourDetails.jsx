@@ -76,7 +76,7 @@ const TourDetails = () => {
           !loading && !error && <Row>
             <Col lg='8'>
               <div className="tour__content">
-                <img src={`${photo}`} alt=" " />
+                <img src={`${BASE_URL}/tours${photo}`} alt=" " />
                 <div className="tour__info">
                   <h2>{title}</h2>
                   <div className="d-flex align-items-center gap-5">

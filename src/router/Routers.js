@@ -10,6 +10,7 @@ import ThankYou from '../pages/ThankYou';
 import About from '../pages/About';
 import SearchComponent from '../components/SearchComponent/SearchComponent';
 import MemoryImagesGallery from '../components/image-gallery/MemoryImagesGallery';
+import UploadComponent from '../components/UploadCoponent/UploadComponent';
 
 const Routers = () => {
   return (
@@ -25,6 +26,7 @@ const Routers = () => {
       <Route path='/about' element={<About />} />
       <Route path='/gallery' element={<MemoryImagesGallery />} />
       <Route path='/ui' element={<SearchComponent />} />
+      <Route path='/upload' element={<UploadComponent />} />
     </Routes >
   )
 }

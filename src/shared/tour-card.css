@@ -71,3 +71,18 @@
 .booking_btn a:hover{
     color:#fff;
 }
+.link-tag{
+    text-decoration: none;
+    color: black;
+}
+.btn-tag{
+    padding: 10px 30px;
+    background-color: #d95c14;
+    border-radius: 20px;
+    color: white;
+    transition: 0.2s;
+}
+.btn-tag:hover{
+   opacity: 0.9;
+   color: black;
+}

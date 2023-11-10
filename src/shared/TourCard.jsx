@@ -1,21 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import "./tour-card.css"
 import calculateAvgRating from '../utils/avgRating';
-import photoImage from '../assets/images/tour-img01.jpg'
+import { BASE_URL } from '../utils/config';
 
 const TourCard = ({ tour }) => {
 
     const { _id, title, city, photo, price, featured, reviews } = tour
-    console.log(photo);
-    console.log(photoImage)
     const { totalRating, avgRating } = calculateAvgRating(reviews)
     return (
         <div className="tour__card">
             <Card>
                 <div className="tour__img">
-                    <img src={`${process.env.PUBLIC_URL}${photo}`} alt="tour-img" />
+                    <img src={`${BASE_URL}/tours${photo}`} alt="tour-img" />
                     {featured && <span>Featured</span>}
                 </div>
             </Card>
@@ -24,19 +22,19 @@ const TourCard = ({ tour }) => {
                 <CardBody>
                     <div className="card__top d-felx align-item-center justify-content-betwen">
                         <span className='tour__location d-flex align=items-center gap-1'>
-                            <i class="ri-map-pin-line"></i> {city}
+                            <i className="ri-map-pin-line" ></i> <a href= {`https://google.com/maps/place/${title}`} target='_blank' className='link-tag'>{city}</a>
                         </span>
                         <span className='tour__rating d-flex align=items-center gap-1'>
-                            <i class="ri-star-fill"></i> {avgRating === 0 ? null : avgRating}
+                            <i className="ri-star-fill"></i> {avgRating === 0 ? null : avgRating}
                             {totalRating === 0 ? ('Not rated') : (<span>({reviews.length})</span>)}
 
                         </span>
                     </div>
-                    <h5 className='tour_title'><Link to={`/tours/${_id}`}>{title}</Link></h5>
+                    <h5 className='tour_title'><Link to={`/tours/${_id}`} className='link-tag'>{title}</Link></h5>
                     <div className="card__bottom d-felx align-item-center justify-content-between mt-3">
                         <h5>₹{price}<span>/per person</span></h5>
                         <button className='btn booking_btn'>
-                            <Link to={`/tours/${_id}`}>Book Now</Link>
+                            <Link to={`/tours/${_id}`} className='link-tag btn-tag'>Book Now</Link>
                         </button>
                     </div>
                 </CardBody>
