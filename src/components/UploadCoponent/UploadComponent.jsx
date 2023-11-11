@@ -1,77 +1,154 @@
-import React ,{useState}from 'react'
+import React, { useState } from 'react'
 import './UploadComponent.css'
+import { BASE_URL } from '../../utils/config';
 const UploadComponent = () => {
-   const [formData, setFormData] = useState({
+   const [selectedFile,setSelectedFile] = useState(null)
+   const [formDatas, setFormDatas] = useState({
       title: '',
       city: '',
       distance: '',
       price: '',
-      maxSize: '',
-      file: null,
+      maxGroupSize: '',
       address: '',
-      description: '',
+      desc: '',
+      photo:''
    });
+   
+   const handleFileChange = (event) => {
+      setSelectedFile(event.target.files[0])
 
+   }
    const handleChange = (e) => {
-      const { name, value, type, files } = e.target;
-      setFormData((prevData) => ({
+      const { name, value,} = e.target;
+      setFormDatas((prevData) => ({
          ...prevData,
-         [name]: type === 'file' ? files[0] : value,
+         [name]:value,
       }));
-   };
-   const handleSubmit = (e) => {
-      e.preventDefault()
-      console.log(formData);
+     
+   }
+
+   const handleSubmit = async(event) => {
+      
+      formDatas.photo ='/tour-images/'+ selectedFile.name
+      event.preventDefault();
+      if (!selectedFile)
+      {
+          alert('Select a file, and then upload')
+      }
+      
+      const formData = new FormData()
+      formData.append('file', selectedFile)
+      
+      
+      try{
+          const response = await fetch(`${BASE_URL}/tours/upload/image`, {
+            method:'POST',
+            body:formData
+         })
+         
+
+          const responseData = await fetch(`${BASE_URL}/tours/upload`, {
+            method:'POST',
+               headers: {
+               'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(formDatas)
+          })
+          if (responseData.status === 500)
+          {
+              alert(`File upload was not successfull`)
+            //   window.location.href='/admin/upload'
+          }
+          else
+          {
+              alert(`File upload was successfull`)
+              console.log(response)
+            //   window.location.href='/'
+          }
+      }
+      catch(error){
+          console.log('Error while uploading the file', error)
+      }
+     
+
+      
    }
    return (
       <div className='containers'>
-         <form className='form-container'  onSubmit={handleSubmit}>
+         <form className='form-container' onSubmit={handleSubmit}>
             <div>
+
                <input type='text'
-                name='title'
+                  name='title'
                   placeholder='Enter the Title'
-                  value={formData.title}
+                  value={formDatas.title}
                   onChange={handleChange}
                />
             </div>
             <div>
+
                <input type='text'
                   name='city'
                   placeholder='Enter the City'
-                  value={formData.city}
+                  value={formDatas.city}
                   onChange={handleChange}
                />
             </div>
-           
+
             <div>
                <input type='number'
+                  name='distance'
+                  value={formDatas.distance}
+                  onChange={handleChange}
                   placeholder='Enter the Distance'
                />
             </div>
             <div>
                <input type='number'
+                  name='price'
+                  value={formDatas.price}
+                  onChange={handleChange}
                   placeholder='Enter the Price'
                />
             </div>
             <div>
                <input type='number'
+                  name='maxGroupSize'
+                  value={formDatas.maxGroupSize}
+                  onChange={handleChange}
                   placeholder='Maximum Group Size'
                />
             </div>
             <div>
-               <input type='file'
-                  name='file'
-                  // value={formData.file}
+               <label>Featured</label>
+               <select
+                  name='featured'
+                  value={formDatas.featured}
                   onChange={handleChange}
+               >
+                  <option value={true}>True</option>
+                  <option value={false}>False</option>
+               </select>
+            </div>
+            <div>
+               <input type='file'
+               
+                  onChange={handleFileChange}
                />
             </div>
             <div>
                <textarea type='text'
+                  name='address'
+                  value={formDatas.address}
+                  onChange={handleChange}
                   placeholder='Enter the Address'
                />
             </div>
             <div>
                <textarea type='text'
+                  name='desc'
+                  value={formDatas.desc}
+                  onChange={handleChange}
                   placeholder='Enter the description'
                />
             </div>

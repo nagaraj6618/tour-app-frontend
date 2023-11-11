@@ -26,7 +26,7 @@ const Routers = () => {
       <Route path='/about' element={<About />} />
       <Route path='/gallery' element={<MemoryImagesGallery />} />
       <Route path='/ui' element={<SearchComponent />} />
-      <Route path='/upload' element={<UploadComponent />} />
+      <Route path='/tours/upload' element={<UploadComponent />} />
     </Routes >
   )
 }

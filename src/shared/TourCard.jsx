@@ -22,7 +22,7 @@ const TourCard = ({ tour }) => {
                 <CardBody>
                     <div className="card__top d-felx align-item-center justify-content-betwen">
                         <span className='tour__location d-flex align=items-center gap-1'>
-                            <i className="ri-map-pin-line" ></i> <a href= {`https://google.com/maps/place/${title}`} target='_blank' className='link-tag'>{city}</a>
+                            <i className="ri-map-pin-line" ></i> <a href= {`https://google.com/maps/place/${title}`} target='_blank'rel="noreferrer" className='link-tag'>{city}</a>
                         </span>
                         <span className='tour__rating d-flex align=items-center gap-1'>
                             <i className="ri-star-fill"></i> {avgRating === 0 ? null : avgRating}
