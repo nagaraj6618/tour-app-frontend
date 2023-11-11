@@ -55,7 +55,7 @@ const Booking = ({ tour, avgRating }) => {
             <h3>₹{price}<span>/per person</span></h3>
 
             <span className="tour__rating d-flex align=items-center">
-                <i class="ri-star-fill" ></i> {avgRating === 0 ? null : avgRating}({reviews?.length})
+                <i className="ri-star-fill" ></i> {avgRating === 0 ? null : avgRating}({reviews?.length})
 
             </span>
 
@@ -86,7 +86,7 @@ const Booking = ({ tour, avgRating }) => {
         <div className="booking_bottom">
             <ListGroup>
                 <ListGroupItem className="border-0 px-0">
-                    <h5 className="d-flex align-items-center gap-1">₹{price}<i class="ri-close-line"></i>1 person</h5>
+                    <h5 className="d-flex align-items-center gap-1">₹{price}<i className="ri-close-line"></i>1 person</h5>
                     <span>₹{price}</span>
                 </ListGroupItem>
                 <ListGroupItem className="border-0 px-0">

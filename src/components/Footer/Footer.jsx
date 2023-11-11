@@ -46,16 +46,16 @@ const Footer = () => {
           <div className="social__links d-felx align-items-center gap-4">
             <span>
               <Link to='#'>
-                <i class="ri-youtube-line"></i>
+                <i className="ri-youtube-line"></i>
               </Link>
               <Link to='#'>
-                <i class="ri-github-fill"></i>
+                <i className="ri-github-fill"></i>
               </Link>
               <Link to='#'>
-                <i class="ri-facebook-circle-fill"></i>
+                <i className="ri-facebook-circle-fill"></i>
               </Link>
               <Link to='#'>
-                <i class="ri-instagram-fill"></i>
+                <i className="ri-instagram-fill"></i>
               </Link>
             </span>
           </div>
@@ -94,7 +94,7 @@ const Footer = () => {
 
               <h6 className="mb-0 d-flex align-item-center gap-2">
                 <span>
-                  <i class="ri-map-pin-2-line"></i>
+                  <i className="ri-map-pin-2-line"></i>
                   Address:
                 </span>
               </h6>
@@ -104,7 +104,7 @@ const Footer = () => {
 
               <h6 className="mb-0 d-flex align-item-center gap-2">
                 <span>
-                  <i class="ri-mail-line"></i>
+                  <i className="ri-mail-line"></i>
                   Email:
                 </span>
               </h6>
@@ -114,7 +114,7 @@ const Footer = () => {
 
               <h6 className="mb-0 d-flex align-item-center gap-2">
                 <span>
-                  <i class="ri-phone-fill"></i>
+                  <i className="ri-phone-fill"></i>
                   Phone:
                 </span>
               </h6>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './UploadComponent.css'
 import { BASE_URL } from '../../utils/config';
 const UploadComponent = () => {
-   const [selectedFile,setSelectedFile] = useState(null)
+   const [selectedFile, setSelectedFile] = useState(null)
    const [formDatas, setFormDatas] = useState({
       title: '',
       city: '',
@@ -11,67 +11,64 @@ const UploadComponent = () => {
       maxGroupSize: '',
       address: '',
       desc: '',
-      photo:''
+      photo: ''
    });
-   
+
    const handleFileChange = (event) => {
       setSelectedFile(event.target.files[0])
 
    }
    const handleChange = (e) => {
-      const { name, value,} = e.target;
+      const { name, value, } = e.target;
       setFormDatas((prevData) => ({
          ...prevData,
-         [name]:value,
+         [name]: value,
       }));
-     
+
    }
 
-   const handleSubmit = async(event) => {
-      
-      formDatas.photo ='/tour-images/'+ selectedFile.name
+   const handleSubmit = async (event) => {
+
+      formDatas.photo = '/tour-images/' + selectedFile.name
       event.preventDefault();
-      if (!selectedFile)
-      {
-          alert('Select a file, and then upload')
+      if (!selectedFile) {
+         alert('Select a file, and then upload')
       }
-      
+
       const formData = new FormData()
       formData.append('file', selectedFile)
-      
-      
-      try{
-          const response = await fetch(`${BASE_URL}/tours/upload/image`, {
-            method:'POST',
-            body:formData
-         })
-         
 
-          const responseData = await fetch(`${BASE_URL}/tours/upload`, {
-            method:'POST',
-               headers: {
+
+      try {
+         const response = await fetch(`${BASE_URL}/tours/upload/image`, {
+            method: 'POST',
+            body: formData
+         })
+
+
+         const responseData = await fetch(`${BASE_URL}/tours/upload`, {
+            method: 'POST',
+            headers: {
                'Content-Type': 'application/json',
             },
-            body:JSON.stringify(formDatas)
-          })
-          if (responseData.status === 500)
-          {
-              alert(`File upload was not successfull`)
+            body: JSON.stringify(formDatas)
+         })
+         if (responseData.status === 500) {
+            alert(`File upload was not successfull`)
             //   window.location.href='/admin/upload'
-          }
-          else
-          {
-              alert(`File upload was successfull`)
-              console.log(response)
+         }
+         else {
+            alert(`File upload was successfull`)
+            console.log(response)
             //   window.location.href='/'
-          }
+         }
       }
-      catch(error){
-          console.log('Error while uploading the file', error)
+      catch (error) {
+         console.log('Error while uploading the file', error)
       }
-     
 
-      
+
+
    }
    return (
       <div className='containers'>
@@ -83,6 +80,7 @@ const UploadComponent = () => {
                   placeholder='Enter the Title'
                   value={formDatas.title}
                   onChange={handleChange}
+                  required
                />
             </div>
             <div>
@@ -92,6 +90,7 @@ const UploadComponent = () => {
                   placeholder='Enter the City'
                   value={formDatas.city}
                   onChange={handleChange}
+                  required
                />
             </div>
 
@@ -101,6 +100,7 @@ const UploadComponent = () => {
                   value={formDatas.distance}
                   onChange={handleChange}
                   placeholder='Enter the Distance'
+                  required
                />
             </div>
             <div>
@@ -109,6 +109,7 @@ const UploadComponent = () => {
                   value={formDatas.price}
                   onChange={handleChange}
                   placeholder='Enter the Price'
+                  required
                />
             </div>
             <div>
@@ -117,6 +118,7 @@ const UploadComponent = () => {
                   value={formDatas.maxGroupSize}
                   onChange={handleChange}
                   placeholder='Maximum Group Size'
+                  required
                />
             </div>
             <div>
@@ -125,6 +127,7 @@ const UploadComponent = () => {
                   name='featured'
                   value={formDatas.featured}
                   onChange={handleChange}
+                  required
                >
                   <option value={true}>True</option>
                   <option value={false}>False</option>
@@ -132,7 +135,7 @@ const UploadComponent = () => {
             </div>
             <div>
                <input type='file'
-               
+
                   onChange={handleFileChange}
                />
             </div>
@@ -142,6 +145,7 @@ const UploadComponent = () => {
                   value={formDatas.address}
                   onChange={handleChange}
                   placeholder='Enter the Address'
+                  required
                />
             </div>
             <div>
@@ -150,6 +154,7 @@ const UploadComponent = () => {
                   value={formDatas.desc}
                   onChange={handleChange}
                   placeholder='Enter the description'
+                  required
                />
             </div>
             <div>

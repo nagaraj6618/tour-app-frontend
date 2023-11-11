@@ -1,5 +1,8 @@
 import React from 'react';
 import './about.css'; // Import the CSS file
+import MemoryImagesGallery from '../components/image-gallery/MemoryImagesGallery';
+import Testimonials from '../components/Testimonial/Testimonials';
+import ServiceList from '../services/ServiceList';
 
 const About = () => {
   return (
@@ -14,6 +17,12 @@ const About = () => {
       <p className="about-description">
         Discover new places, explore diverse cultures, and create lasting memories with us. Join us for an unforgettable adventure!
       </p>
+      <div>
+      <ServiceList/>
+        <MemoryImagesGallery/>
+        <Testimonials/>
+        
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import { NavLink, Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import './Header.css'
 import { AuthContext } from '../../context/AuthContext';
-import {CiMenuBurger} from 'react-icons/ci'
+import { CiMenuBurger } from 'react-icons/ci'
 
 const nav__links = [
   {
@@ -50,10 +50,12 @@ const Header = () => {
     return window.removeEventListener('scroll', stickyHeaderFunc);
   })
   const toggleMenu = () => {
-    console.log('Toggle menu called'); // Check if the function is called
+    
     menuRef.current.classList.toggle('show__menu');
-    console.log('Menu class toggled'); // Check if the class is toggled
+  
   }
+
+
   return (<header className="header" ref={headerRef}>
     <Container>
       <Row>
@@ -65,8 +67,8 @@ const Header = () => {
           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
             <ul className="menu d-flex align-items-center gap-5">
               {nav__links.map((item, index) => (
-                <li className="nav__item" key={index}>
-                  <NavLink to={item.path} className={navClass => navClass.isActive ? 'active__link' : ''}>{item.display}</NavLink>
+                <li className="nav__item" key={index} >
+                  <NavLink to={item.path} className={navClass => navClass.isActive ? 'active__link' : ''} >{item.display}</NavLink>
                 </li>
               ))}
             </ul>
@@ -87,8 +89,8 @@ const Header = () => {
 
             </div>
             <span className="mobile__menu" onClick={toggleMenu}>
-              <CiMenuBurger className='ri-menu-line'/>
-              
+              <CiMenuBurger className='ri-menu-line' />
+
             </span>
           </div>
         </div>

@@ -68,7 +68,7 @@ const Home = () => {
       <Container>
         <Row>
           <Col lg='12' className='mb-5'>
-            <subtitle subtitle={`Explore`} />
+            <Subtitle subtitle={`Explore`} />
             <h2 className="featured__tour-title">Our feature tours</h2>
           </Col>
           <FeaturedTour />
@@ -80,7 +80,7 @@ const Home = () => {
         <Row>
           <Col lg='6'>
             <div className="experience__content">
-              <subtitle subtitle={'Experience'} />
+              <Subtitle subtitle={'Experience'} />
               <h2>With our all Experience <br /> we will serve you</h2>
               <p>Enjoy the trip is also an happiness<br />
                 hapy happy happy happy happy
