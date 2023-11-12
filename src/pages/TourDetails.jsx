@@ -93,7 +93,9 @@ const TourDetails = () => {
                     </span>
                   </div>
                   <h5>Descrption</h5>
+                  
                   <p>{desc}</p>
+                  
                 </div>
                 <div className="tour__reviews mt-4">
                   <h4>

@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import { Container, Row, Button } from 'reactstrap'
 import { NavLink, Link, useNavigate } from 'react-router-dom';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo2.png';
 import './Header.css'
 import { AuthContext } from '../../context/AuthContext';
 import { CiMenuBurger } from 'react-icons/ci'

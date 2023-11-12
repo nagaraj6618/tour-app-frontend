@@ -1,9 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const SearchComponent = () => {
-  const [data, setData] = useState([])
-
-
 
   return (
     <div>Saveetha enginnering college</div>

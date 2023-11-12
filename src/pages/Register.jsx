@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/login.css';
-import registerImg from '../assets/images/register.png';
-import userIcon from '../assets/images/user.png'
+import registerImg from '../assets/images/register1.png';
+import userImage from '../assets/images/user1.png'
 import { AuthContext } from '../context/AuthContext';
 import { BASE_URL } from '../utils/config';
 const Register = () => {
@@ -53,7 +53,7 @@ const Register = () => {
             </div>
             <div className="login__form">
               <div className="user">
-                <img src={userIcon} alt=" " />
+                <img src={userImage} alt=" " />
 
               </div>
               <h2>Register</h2>

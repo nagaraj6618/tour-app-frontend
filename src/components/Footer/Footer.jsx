@@ -2,7 +2,7 @@ import React from 'react';
 import './footer.css'
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap'
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logo2.png'
 
 const quick__links = [
   {
@@ -45,17 +45,17 @@ const Footer = () => {
           </p> */}
           <div className="social__links d-felx align-items-center gap-4">
             <span>
-              <Link to='#'>
-                <i className="ri-youtube-line"></i>
+              <Link to='#' className='contact'>
+                <i className="ri-youtube-line contact" ></i>
               </Link>
-              <Link to='#'>
-                <i className="ri-github-fill"></i>
+              <Link to='#' className='contact'>
+                <i className="ri-github-fill contact"></i>
               </Link>
-              <Link to='#'>
-                <i className="ri-facebook-circle-fill"></i>
+              <Link to='#' className='contact'>
+                <i className="ri-facebook-circle-fill contact" ></i>
               </Link>
-              <Link to='#'>
-                <i className="ri-instagram-fill"></i>
+              <Link to='#' className='contact'>
+                <i className="ri-instagram-fill contact"></i>
               </Link>
             </span>
           </div>

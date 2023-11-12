@@ -7,16 +7,21 @@
 .login__img img {
     width: 70%;
     object-fit: contain;
+    
 }
 
 .login__form {
     padding: 50px;
     background: var(--secondary-color);
     position: relative;
+    border-radius: 5px;
+   
 }
 
 .login__container {
-    box-shadow: rgba(17.12, 46, 0.15)0px 48px 100px 0px;
+    border: solid 0.1px var(--secondary-color);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 48px 100px 0px;
     margin-top: 100px;
 
 }
@@ -34,6 +39,7 @@
 .login__form .user img {
     width: 100%;
     /* display: none; */
+    border-radius: 50%;
 }
 
 .login__form h2 {

@@ -5,6 +5,7 @@ import "./tour-card.css"
 import calculateAvgRating from '../utils/avgRating';
 import { BASE_URL } from '../utils/config';
 
+
 const TourCard = ({ tour }) => {
 
     const { _id, title, city, photo, price, featured, reviews } = tour
@@ -35,6 +36,7 @@ const TourCard = ({ tour }) => {
                         <h5>₹{price}<span>/per person</span></h5>
                         <button className='btn booking_btn'>
                             <Link to={`/tours/${_id}`} className='link-tag btn-tag'>Book Now</Link>
+
                         </button>
                     </div>
                 </CardBody>

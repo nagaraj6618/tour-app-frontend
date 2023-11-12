@@ -42,24 +42,27 @@ const UploadComponent = () => {
       try {
          const response = await fetch(`${BASE_URL}/tours/upload/image`, {
             method: 'POST',
-            body: formData
+            credentials: 'include',
+            body: formData,
          })
 
 
-         const responseData = await fetch(`${BASE_URL}/tours/upload`, {
+         const responseData = await fetch(`${BASE_URL}/tours`, {
             method: 'POST',
             headers: {
                'Content-Type': 'application/json',
+
             },
+            credentials: 'include',
             body: JSON.stringify(formDatas)
          })
-         if (responseData.status === 500) {
-            alert(`File upload was not successfull`)
+         if (responseData.status === 200 || response.status===200) {
+            alert(`File upload was successfull`)
             //   window.location.href='/admin/upload'
          }
          else {
-            alert(`File upload was successfull`)
-            console.log(response)
+            alert(`File upload was not successfull`)
+           
             //   window.location.href='/'
          }
       }
