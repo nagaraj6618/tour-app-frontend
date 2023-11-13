@@ -11,7 +11,8 @@ import About from '../pages/About';
 import SearchComponent from '../components/SearchComponent/SearchComponent';
 import MemoryImagesGallery from '../components/image-gallery/MemoryImagesGallery';
 import UploadComponent from '../components/UploadCoponent/UploadComponent';
-// import UpdateComponent from '../components/UpdateComponent.jsx/UpdateComponent';
+import UpdateComponent from '../components/UploadCoponent/UpdateComponent';
+
 
 const Routers = () => {
   return (
@@ -28,7 +29,7 @@ const Routers = () => {
       <Route path='/gallery' element={<MemoryImagesGallery />} />
       <Route path='/ui' element={<SearchComponent />} />
       <Route path='/tours/upload' element={<UploadComponent />} />
-      {/* <Route path='/tours/update/:id' element={<UpdateComponent />} /> */}
+      <Route path='/tours/update/:id' element={<UpdateComponent/>} />
     </Routes >
   )
 }

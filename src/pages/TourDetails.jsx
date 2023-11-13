@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useContext } from 'react';
 import '../styles/tour-details.css'
 import { Container, Row, Col, Form, ListGroup } from 'reactstrap'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import calculateAvgRating from '../utils/avgRating';
 import avatar from "../assets/images/avatar.jpg";
 import Booking from '../components/Booking/Booking';
@@ -54,6 +54,35 @@ const TourDetails = () => {
     }
 
   };
+  const deleteHandler = async() => {
+   
+    try {
+      if (!user || user === undefined || user === null) {
+        alert("please Sign in")
+      }
+  
+
+      const res = await fetch(`${BASE_URL}/tours/${id}`, {
+        method: 'delete',
+        headers: {
+          'content-type': 'application/json'
+        }
+        ,
+        credentials: 'include',
+        // body: JSON.stringify(id)
+
+      })
+      const result = await res.json()
+      if (!res.ok) {
+        return alert(result.message)
+      }
+      alert(result.message)
+      window.location.href='/tours'
+    } catch (err) {
+      alert(err.message);
+    }
+    
+  }
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [tour])
@@ -95,7 +124,8 @@ const TourDetails = () => {
                   <h5>Descrption</h5>
                   
                   <p>{desc}</p>
-                  
+                  <button onClick={deleteHandler}> Delete </button>
+                  <Link to={`/tours/update/${id}`}> Update </Link>
                 </div>
                 <div className="tour__reviews mt-4">
                   <h4>
