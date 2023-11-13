@@ -94,8 +94,8 @@
     .menu {
         position: absolute;
         top: 0;
-        right: 140px;
-        width: calc(100% - 60%);
+        right: 0px;
+        width: calc(100% - 40%);
         height: 100%;
         background-color: #fff;
         flex-direction: column;
