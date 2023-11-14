@@ -11,7 +11,8 @@ const UploadComponent = () => {
       maxGroupSize: '',
       address: '',
       desc: '',
-      photo: ''
+      photo: '',
+      featured:false
    });
 
    const handleFileChange = (event) => {

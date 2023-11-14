@@ -124,6 +124,7 @@
 @media only screen and(max-width:576px){
     .hero__content{
         font-size: 1.8rem;
+       
     }
     .service__title{
         font-size: 1.5;
